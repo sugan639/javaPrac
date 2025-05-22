@@ -1,0 +1,110 @@
+Thread-A acquired lock
+2025-04-21 19:04:10
+Full thread dump Java HotSpot(TM) 64-Bit Server VM (11.0.25+9-LTS-256 mixed mode):
+
+Threads class SMR info:
+_java_thread_list=0x00007e29e45bfc20, length=15, elements={
+0x00007e29e4218000, 0x00007e29e421a000, 0x00007e29e4230800, 0x00007e29e4232800,
+0x00007e29e4234800, 0x00007e29e4237000, 0x00007e29e4239000, 0x00007e29e42f1800,
+0x00007e297c07e000, 0x00007e2968001800, 0x00007e2968014000, 0x00007e2968060800,
+0x00007e29e45f9800, 0x00007e29e45fb000, 0x00007e29e4023000
+}
+
+"Reference Handler" #2 daemon prio=10 os_prio=0 cpu=0.23ms elapsed=1.51s tid=0x00007e29e4218000 nid=0x3c8a6 waiting on condition  [0x00007e29bc5f0000]
+   java.lang.Thread.State: RUNNABLE
+	at java.lang.ref.Reference.waitForReferencePendingList(java.base@11.0.25/Native Method)
+	at java.lang.ref.Reference.processPendingReferences(java.base@11.0.25/Reference.java:241)
+	at java.lang.ref.Reference$ReferenceHandler.run(java.base@11.0.25/Reference.java:213)
+
+"Finalizer" #3 daemon prio=8 os_prio=0 cpu=0.33ms elapsed=1.51s tid=0x00007e29e421a000 nid=0x3c8a7 in Object.wait()  [0x00007e29bc4f0000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(java.base@11.0.25/Native Method)
+	- waiting on <0x0000000719b09580> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(java.base@11.0.25/ReferenceQueue.java:155)
+	- waiting to re-lock in wait() <0x0000000719b09580> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(java.base@11.0.25/ReferenceQueue.java:176)
+	at java.lang.ref.Finalizer$FinalizerThread.run(java.base@11.0.25/Finalizer.java:170)
+
+"Signal Dispatcher" #4 daemon prio=9 os_prio=0 cpu=0.20ms elapsed=1.51s tid=0x00007e29e4230800 nid=0x3c8a8 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Service Thread" #5 daemon prio=9 os_prio=0 cpu=0.28ms elapsed=1.51s tid=0x00007e29e4232800 nid=0x3c8a9 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C2 CompilerThread0" #6 daemon prio=9 os_prio=0 cpu=213.86ms elapsed=1.51s tid=0x00007e29e4234800 nid=0x3c8aa waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+   No compile task
+
+"C1 CompilerThread0" #14 daemon prio=9 os_prio=0 cpu=119.68ms elapsed=1.51s tid=0x00007e29e4237000 nid=0x3c8ab waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+   No compile task
+
+"Sweeper thread" #18 daemon prio=9 os_prio=0 cpu=0.18ms elapsed=1.51s tid=0x00007e29e4239000 nid=0x3c8ac runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Common-Cleaner" #19 daemon prio=8 os_prio=0 cpu=0.23ms elapsed=1.48s tid=0x00007e29e42f1800 nid=0x3c8ad in Object.wait()  [0x00007e29b6ffe000]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(java.base@11.0.25/Native Method)
+	- waiting on <0x0000000719b76ca8> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(java.base@11.0.25/ReferenceQueue.java:155)
+	- waiting to re-lock in wait() <0x0000000719b76ca8> (a java.lang.ref.ReferenceQueue$Lock)
+	at jdk.internal.ref.CleanerImpl.run(java.base@11.0.25/CleanerImpl.java:148)
+	at java.lang.Thread.run(java.base@11.0.25/Thread.java:834)
+	at jdk.internal.misc.InnocuousThread.run(java.base@11.0.25/InnocuousThread.java:134)
+
+"C1 CompilerThread1" #15 daemon prio=9 os_prio=0 cpu=97.81ms elapsed=1.48s tid=0x00007e297c07e000 nid=0x3c8ae waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+   No compile task
+
+"C1 CompilerThread2" #16 daemon prio=9 os_prio=0 cpu=102.93ms elapsed=1.48s tid=0x00007e2968001800 nid=0x3c8af waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+   No compile task
+
+"C2 CompilerThread1" #7 daemon prio=9 os_prio=0 cpu=301.41ms elapsed=1.47s tid=0x00007e2968014000 nid=0x3c8b0 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+   No compile task
+
+"C1 CompilerThread3" #17 daemon prio=9 os_prio=0 cpu=74.22ms elapsed=1.38s tid=0x00007e2968060800 nid=0x3c8b3 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+   No compile task
+
+"Thread-A" #20 prio=5 os_prio=0 cpu=7.59ms elapsed=1.12s tid=0x00007e29e45f9800 nid=0x3c8b5 waiting on condition  [0x00007e29b69fd000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep(java.base@11.0.25/Native Method)
+	at BlockedStateDemo$Task.run(BlockedStateDemo.java:19)
+	- locked <0x00000007189754c0> (a java.lang.Object)
+	at java.lang.Thread.run(java.base@11.0.25/Thread.java:834)
+
+"Thread-B" #21 prio=5 os_prio=0 cpu=0.31ms elapsed=1.12s tid=0x00007e29e45fb000 nid=0x3c8b6 waiting for monitor entry  [0x00007e29b61fe000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at BlockedStateDemo$Task.run(BlockedStateDemo.java:17)
+	- waiting to lock <0x00000007189754c0> (a java.lang.Object)
+	at java.lang.Thread.run(java.base@11.0.25/Thread.java:834)
+
+"DestroyJavaVM" #22 prio=5 os_prio=0 cpu=412.42ms elapsed=1.12s tid=0x00007e29e4023000 nid=0x3c89f waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"VM Thread" os_prio=0 cpu=3.70ms elapsed=1.52s tid=0x00007e29e420f800 nid=0x3c8a5 runnable  
+
+"GC Thread#0" os_prio=0 cpu=1.15ms elapsed=1.54s tid=0x00007e29e403a000 nid=0x3c8a0 runnable  
+
+"G1 Main Marker" os_prio=0 cpu=0.58ms elapsed=1.54s tid=0x00007e29e4097000 nid=0x3c8a1 runnable  
+
+"G1 Conc#0" os_prio=0 cpu=0.12ms elapsed=1.54s tid=0x00007e29e4099000 nid=0x3c8a2 runnable  
+
+"G1 Refine#0" os_prio=0 cpu=0.53ms elapsed=1.53s tid=0x00007e29e41aa000 nid=0x3c8a3 runnable  
+
+"G1 Young RemSet Sampling" os_prio=0 cpu=0.83ms elapsed=1.53s tid=0x00007e29e41ac000 nid=0x3c8a4 runnable  
+"VM Periodic Task Thread" os_prio=0 cpu=1.32ms elapsed=1.46s tid=0x00007e29e433a000 nid=0x3c8b1 waiting on condition  
+
+JNI global refs: 17, weak refs: 0
+
+Heap
+ garbage-first heap   total 251904K, used 17408K [0x000000070a600000, 0x0000000800000000)
+  region size 1024K, 19 young (19456K), 0 survivors (0K)
+ Metaspace       used 14718K, capacity 15042K, committed 15360K, reserved 1062912K
+  class space    used 1585K, capacity 1685K, committed 1792K, reserved 1048576K
+
+Thread-A released lock
+Thread-B acquired lock
+Thread-B released lock
